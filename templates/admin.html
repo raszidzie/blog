@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Now UI Dashboard by Creative Tim
+    LalaHelp
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -19,7 +19,16 @@
   <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/static/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
+<style>
+.panel-header{
+    background-image: url('https://cdn.dribbble.com/users/542624/screenshots/2799134/firewatch.png');
 
+}
+.panel-header-sm {
+  height: 500px;
+}
+
+</style>
 </head>
 
 <body class="">
@@ -30,62 +39,45 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+          LH
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+         Admin
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+            <a href="{% url 'blog:dashboard'%}">
+              <i class="fa fa-window-maximize"></i>
+              <p>Idare Paneli</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
+            <a href="{% url 'blog:create'%}">
+              <i class="fa fa-edit"></i>
+              <p>Meqaleler</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+          <li >
+            <a href="fa fa-tasks">
+              <i class="fa fa-tasks"></i>
+              <p>Tapsiriqlar</p>
             </a>
           </li>
           <li>
             <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+              <i class="fa fa-bell"></i>
+              <p>Bildirisler</p>
             </a>
           </li>
           <li>
             <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
+              <i class="fa fa-user"></i>
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+         
         </ul>
       </div>
     </div>
@@ -164,6 +156,45 @@
                Admin
               </div>
               <div class="card-body ">
+                 
+                  <div class="container">
+                        <h2>Meqaleler</h2>
+                        <p>Burda Redakte Etmek olar, ve Meqaleleri silmek olar</p>            
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Basliq</th>
+                              
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                                {% for post in posts %}
+                            <tr>
+                              <td>{{post.title}}</td>
+                              <td> <a href="{% url 'blog:update' post.id %}">
+                                    <i class="fa fa-edit"></i>
+                                   
+                                  </a> </td>
+                                  <td>
+                                        <a href="{% url 'blog:delete' post.id %}">
+                                                <i class="fa fa-trash"></i>
+
+                                  </td>
+                              
+                            </tr>
+                            
+                                   
+                            
+                            {% endfor %}
+                           
+                           
+                          </tbody>
+                        </table>
+                      </div>
+
+
+                 
                 
               </div>
             </div>
@@ -192,12 +223,12 @@
             </ul>
           </nav>
           <div class="copyright">
-            &copy;
+            &copy; LalaHelp
             <script>
               document.write(new Date().getFullYear())
-            </script>, Designed by
-            <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </script> Created by
+            <a href="https://www.invisionapp.com" target="_blank"> Rashid Maharramli</a>
+            
           </div>
         </div>
       </footer>

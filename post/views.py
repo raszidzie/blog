@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import Post
 from .forms import PostForm
 # Create your views here.
@@ -19,8 +19,12 @@ def post_detail(request, id):
     return render (request, 'post/detail.html', context )
 
 def adminpost(request):
+    posts = Post.objects.all()
+    context={
+        'posts':posts,
+    }
    
-    return render (request, 'admin.html')
+    return render (request, 'admin.html', context)
 
 def post_create(request):
     form = PostForm(request.POST or None)
@@ -31,3 +35,19 @@ def post_create(request):
         'form':form,
     }
     return render (request, 'post/meqale.html',context)
+def post_update(request, id):
+    post = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        post = form.save()
+      
+    context = {
+        'post':post,
+      }
+    return render (request, 'post/update_post.html', context )
+
+def post_delete(request, id):
+    post = get_object_or_404(Post, id=id)
+    post.delete()
+    return redirect ('blog:dashboard')
+

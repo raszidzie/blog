@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
-    published = models.DateField()
+    published = models.DateField( auto_now_add=True)
 
 
     def __str__(self):
