@@ -108,7 +108,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
-MEDIA_URL = 'static/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 CKEDITOR_JQUERY_URL= os.path.join(STATIC_URL, 'js/jquery.min.js')

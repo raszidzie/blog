@@ -158,20 +158,72 @@
                Admin
               </div>
               <div class="card-body ">
-                    <form method="POST">
-                                    {% csrf_token %}                            
-        
-        <div id="div_id_title" class="form-group"> <label for="id_title" class="control-label  requiredField">
-                        Basliq<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text"> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
-                        Icerik<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> 
-                            <input type="submit" class="btn btn-primary">
-        
-                        </form>
+                    <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            
+
+<div id="div_id_title" class="form-group"> <label for="id_title" class="control-label  requiredField">
+        Title<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text"> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
+        Description<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> <div id="div_id_image" class="form-group"> <label for="id_image" class="control-label ">
+        Image
+    </label> <div class="controls "> <input class="clearablefileinput " id="id_image" name="image" type="file"> </div> </div>
+                    
+
+    <input type="submit" class="btn btn-primary">
+                </form>
               </div>
             </div>
+            <div class="col-md-12">
+                    <div class="card ">
+                      <div class="card-header ">
+                       Admin
+                      </div>
+                      <div class="card-body ">
+                            <div class="container">
+                                    <h2>Meqaleler</h2>
+                                    <p>Burda Redakte Etmek olar, ve Meqaleleri silmek olar</p>            
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>Basliq</th>
+                                          
+                                          
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                            {% for post in posts %}
+                                        <tr>
+                                          <td>{{post.title}}</td>
+                                          <td> <a href="{% url 'blog:update' post.id %}">
+                                                <i class="fa fa-edit"></i>
+                                               
+                                              </a> </td>
+                                              <td>
+                                                    <a href="{% url 'blog:delete' post.id %}">
+                                                            <i class="fa fa-trash"></i>
+            
+                                              </td>
+                                          
+                                        </tr>
+                                        
+                                               
+                                        
+                                        {% endfor %}
+                                       
+                                       
+                                      </tbody>
+                                    </table>
+                                  </div>
+                      </div>
+                    </div>
           </div>
+
+
+          
+
         </div>
       </div>
+      
       <footer class="footer">
         <div class="container-fluid">
           <nav>

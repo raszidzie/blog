@@ -13,6 +13,6 @@ urlpatterns = [
     url(r'^dashboard/', adminpost, name="dashboard"),
     url(r'^create/', post_create, name="create"),
     url(r'^(?P<id>\d+)/update/$', post_update, name="update" ),
-     url(r'^(?P<id>\d+)/delete/$', post_delete, name="delete" ),
+    url(r'^(?P<id>\d+)/delete/$', post_delete, name="delete" ),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

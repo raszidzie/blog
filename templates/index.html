@@ -22,8 +22,15 @@
     <link href="/static/css/clean-blog.min.css" rel="stylesheet">
     <style>
     .overlay{
-      background-image:url('https://cdnb.artstation.com/p/assets/images/images/006/771/807/large/daka-dibuja-6-medio-dia.jpg?1501127200');
+      background-image:url('http://www.bkv.com/blog/wp-content/uploads/2015/05/Basecamp.jpg');
+      background-size: cover;
+      opacity:1;
     }
+    .responsive {
+    max-width: 100%;
+    height: auto;
+}
+    
     </style>
 
   </head>
@@ -78,6 +85,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
+            <img src="/media/{{post.image}}"class="responsive" width="600" height="400">
             <a href="{% url 'blog:detail' post.id %}">
               <h2 class="post-title">
                 {{post.title}}
@@ -87,7 +95,7 @@
               </h3>
             </a>
             <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
+              <a href="#">{{post.user}}</a>
               {{post.published}}</p>
           </div>
         

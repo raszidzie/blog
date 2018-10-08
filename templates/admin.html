@@ -113,8 +113,8 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
+                    <a class="nav-link" href="{% url 'blog:index'%}">
+                        <i class="fa fa-globe"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
                   </p>
@@ -157,41 +157,7 @@
               </div>
               <div class="card-body ">
                  
-                  <div class="container">
-                        <h2>Meqaleler</h2>
-                        <p>Burda Redakte Etmek olar, ve Meqaleleri silmek olar</p>            
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Basliq</th>
-                              
-                              
-                            </tr>
-                          </thead>
-                          <tbody>
-                                {% for post in posts %}
-                            <tr>
-                              <td>{{post.title}}</td>
-                              <td> <a href="{% url 'blog:update' post.id %}">
-                                    <i class="fa fa-edit"></i>
-                                   
-                                  </a> </td>
-                                  <td>
-                                        <a href="{% url 'blog:delete' post.id %}">
-                                                <i class="fa fa-trash"></i>
-
-                                  </td>
-                              
-                            </tr>
-                            
-                                   
-                            
-                            {% endfor %}
-                           
-                           
-                          </tbody>
-                        </table>
-                      </div>
+                  
 
 
                  
