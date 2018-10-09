@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load crispy_forms_tags%}
   <head>
 
     <meta charset="utf-8">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/home.css" rel="stylesheet">
+    <link href="/static/css/homee.css" rel="stylesheet">
     <style>
     .overlay{
         background-image:url('https://images4.alphacoders.com/232/thumb-1920-232854.jpg');
@@ -53,12 +54,21 @@
           <div class="col-12 my-auto">
             <div class="masthead-content text-white py-5 py-md-0">
               <h1 class="mb-3">LalaHelp</h1>
-              <p class="mb-5">Hey! Welcome to my blog, you can ask me questions from here!
-                <strong>January 2019</strong></p>
+              <p class="mb-5">Buradan sual sorusa bilersiniz
+                <strong></strong></p>
               <div class="input-group input-group-newsletter">
-                <input type="email" class="form-control" placeholder="Sual..." aria-label="Enter email..." aria-describedby="basic-addon">
+                  <form method="POST">
+                        {% csrf_token %}                      
+     
+     <div id="div_id_ad" class="form-group"> <label for="id_ad" class="control-label  requiredField">
+                     Ad<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ad" maxlength="200" name="ad" type="text"> </div> </div> <div id="div_id_soyad" class="form-group"> <label for="id_soyad" class="control-label  requiredField">
+                     Soyad<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_soyad" maxlength="200" name="soyad" type="text"> </div> </div> <div id="div_id_sual" class="form-group"> <label for="id_sual" class="control-label  requiredField">
+                     Sual<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_sual" maxlength="600" name="sual" type="text"> </div> </div>
+     
+                      <button class="btn btn-secondary" type="submit">Soruş</button>
+                      </form>
                 <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button">Soruş</button>
+                  
                 </div>
               </div>
             </div>

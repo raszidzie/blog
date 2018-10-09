@@ -19,12 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/static/css/cleanblog.min.css" rel="stylesheet">
     <link href="/static/css/card.css" rel="stylesheet">
 
     <style>
             .overlay{
-                background-image: url('https://cdn.dribbble.com/users/542624/screenshots/2799134/firewatch.png');
+              background-image:url('https://www.conservationmagazine.org/wp-content/uploads/2016/08/underwater.jpg');
+              background-size: cover;
             
             }
             .overlay {
@@ -152,7 +153,7 @@
             
                              <div class="my-5"></div>
                              {% for comment in post.comments.all%}
-                             <h4>{{comment.name}} | <small>{{comment.date|timesince}} evvel </small></h4>
+                             <h4>{{comment.name}} | <small>{{comment.date|timesince}} əvvəl </small></h4>
                              <p>{{ comment.comment|linebreaks}}</p>
                              {% endfor %}
                             

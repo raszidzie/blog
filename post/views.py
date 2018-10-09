@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Post
-from .forms import PostForm, CommentForm
+from .models import Post,Comment,Contact
+from .forms import PostForm, CommentForm, ContactForm
+from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -30,7 +32,16 @@ def post_detail(request, id):
 
 def adminpost(request):
    
-    return render (request, 'admin.html')
+    contacts = Contact.objects.all()
+
+   
+    
+   
+    context = {
+       
+        'contacts':contacts,
+      }
+    return render (request, 'admin.html', context)
 
 def post_create(request):
     form = PostForm(request.POST or None, request.FILES or None)
@@ -62,3 +73,11 @@ def post_delete(request, id):
     post.delete()
     return redirect ('blog:create')
 
+def contact (request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context={
+        'form':form,
+    }    
+    return render (request, 'home.html',context)

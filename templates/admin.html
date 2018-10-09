@@ -153,11 +153,39 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
-               Admin
+                  
               </div>
               <div class="card-body ">
-                 
-                  
+                
+                 <div class="container">
+                    <h2>Suallar</h2>
+                    <p></p>            
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> ad </th>
+                          <th>soyad</th>
+                          <th>sual</th>
+                          
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for contact in contacts %}
+                        <tr>
+                          <td>{{contact.ad}}</td>
+                          <td> {{contact.soyad}}</td>
+                              <td>{{contact.sual}}</td>
+                              
+                        </tr>
+                        
+                               
+                        
+                        {% endfor %}
+                       
+                       
+                      </tbody>
+                    </table>
 
 
                  
