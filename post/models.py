@@ -1,9 +1,9 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+
 from django.core.urlresolvers import reverse
 # Create your models here.
 class Post(models.Model):
-    user = models.ForeignKey('auth.user', verbose_name="Yazar")
+    user = models.ForeignKey('auth.user', verbose_name="Yazar",default=1)
     title = models.CharField(max_length=120)
     description = models.TextField()
     published = models.DateField( auto_now_add=True)

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lala</title>
+    <title>LalaHelp</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/homee.css" rel="stylesheet">
+    <link href="/static/css/home.css" rel="stylesheet">
     <style>
     .overlay{
         background-image:url('https://images4.alphacoders.com/232/thumb-1920-232854.jpg');
@@ -54,15 +54,15 @@
           <div class="col-12 my-auto">
             <div class="masthead-content text-white py-5 py-md-0">
               <h1 class="mb-3">LalaHelp</h1>
-              <p class="mb-5">Buradan sual sorusa bilersiniz
+              <p class="mb-5">Buradan sual soruşa bilərsiniz
                 <strong></strong></p>
               <div class="input-group input-group-newsletter">
                   <form method="POST">
                         {% csrf_token %}                      
      
      <div id="div_id_ad" class="form-group"> <label for="id_ad" class="control-label  requiredField">
-                     Ad<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ad" maxlength="200" name="ad" type="text"> </div> </div> <div id="div_id_soyad" class="form-group"> <label for="id_soyad" class="control-label  requiredField">
-                     Soyad<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_soyad" maxlength="200" name="soyad" type="text"> </div> </div> <div id="div_id_sual" class="form-group"> <label for="id_sual" class="control-label  requiredField">
+                     Ad Soyad<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ad" maxlength="200" name="ad" type="text"> </div> </div> <div id="div_id_soyad" class="form-group"> <label for="id_soyad" class="control-label  requiredField">
+                     Email<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_soyad" maxlength="200" name="soyad" type="text"> </div> </div> <div id="div_id_sual" class="form-group"> <label for="id_sual" class="control-label  requiredField">
                      Sual<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_sual" maxlength="600" name="sual" type="text"> </div> </div>
      
                       <button class="btn btn-secondary" type="submit">Soruş</button>
@@ -80,17 +80,17 @@
     <div class="social-icons">
       <ul class="list-unstyled text-center mb-0">
         <li class="list-unstyled-item">
-          <a href="#">
+          <a href="{% url 'blog:dashboard' %}">
             <i class="fa fa-user"></i>
           </a>
         </li>
         <li class="list-unstyled-item">
          <a href="{% url 'blog:index' %}">
-            <i class="fa fa-pencil"></i>
+            <i class="fa fa-globe"></i>
           </a>
         </li>
         <li class="list-unstyled-item">
-          <a href="#">
+          <a href="https://www.instagram.com/gulallahinqulu/">
             <i class="fa fa-instagram"></i>
           </a>
         </li>

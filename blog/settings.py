@@ -25,7 +25,7 @@ SECRET_KEY = '%q5nv-a1kjo8i9=it@@51mjjyw(s*qlmh=2@n5y2ud^oxw$qhb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lalahelpme.com']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'post',
     'crispy_forms',
-    'ckeditor',
+    
 )
 
 MIDDLEWARE_CLASSES = (

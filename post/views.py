@@ -3,7 +3,6 @@ from .models import Post,Comment,Contact
 from .forms import PostForm, CommentForm, ContactForm
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
-
 # Create your views here.
 def home(request):
   
@@ -29,7 +28,7 @@ def post_detail(request, id):
         'form':form,
       }
     return render (request, 'post/detail.html', context )
-
+@login_required
 def adminpost(request):
    
     contacts = Contact.objects.all()
@@ -42,7 +41,7 @@ def adminpost(request):
         'contacts':contacts,
       }
     return render (request, 'admin.html', context)
-
+@login_required
 def post_create(request):
     form = PostForm(request.POST or None, request.FILES or None)
     
@@ -50,12 +49,14 @@ def post_create(request):
    
     if form.is_valid():
         post = form.save()
-      
+        
+        
     context={
         'form':form,
         'posts':posts,
     }
     return render (request, 'post/meqale.html',context)
+@login_required
 def post_update(request, id):
     post = get_object_or_404(Post, id=id)
     form = PostForm(request.POST or None, request.FILES or None, instance=post)
@@ -67,7 +68,7 @@ def post_update(request, id):
         'post':post,
       }
     return render (request, 'post/update_post.html', context )
-
+@login_required
 def post_delete(request, id):
     post = get_object_or_404(Post, id=id)
     post.delete()
