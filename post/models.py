@@ -5,9 +5,14 @@ from django.core.urlresolvers import reverse
 class Post(models.Model):
     user = models.ForeignKey('auth.user', verbose_name="Yazar",default=1)
     title = models.CharField(max_length=120)
+    category = models.CharField(max_length=100, blank=True)
     description = models.TextField()
+    source = models.CharField(max_length=300, blank=True)
+    person = models.CharField(max_length=50, blank=True)
     published = models.DateField( auto_now_add=True)
     image = models.FileField(null=True, blank=True)
+    tag = models.CharField(max_length="200", blank=True)
+  
 
 
     def __str__(self):
