@@ -10,8 +10,8 @@ class Post(models.Model):
     source = models.CharField(max_length=300, blank=True)
     person = models.CharField(max_length=50, blank=True)
     published = models.DateField( auto_now_add=True)
-    image = models.FileField(null=True, blank=True)
-    tag = models.CharField(max_length="200", blank=True)
+    image = models.FileField(null=True, blank=True )
+    tag = models.CharField(max_length="200", blank=True )
   
 
 
@@ -33,3 +33,9 @@ class Contact(models.Model):
     ad = models.CharField(max_length=200)
     soyad = models.CharField(max_length=200)
     sual = models.CharField(max_length=600)
+
+class Subscribe(models.Model):
+    mail = models.EmailField(max_length=100)
+
+    def __str__(self):
+        return self.mail

@@ -17,7 +17,6 @@ urlpatterns = [
     url(r'^/blog', listing, name="blogpage"),
     url(r'post/', include('post.urls', namespace="blog")),
     url(r'accounts/', include('accounts.urls', namespace="accounts")),
-    url(r'elanlar/', include('elan.urls', namespace="elanlar")),
-
+  
     
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

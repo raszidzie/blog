@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'post',
     'crispy_forms',
     
+    
 )
 
 MIDDLEWARE_CLASSES = (

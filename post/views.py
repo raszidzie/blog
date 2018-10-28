@@ -1,14 +1,15 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Post,Comment,Contact
-from .forms import PostForm, CommentForm, ContactForm
+from .models import Post,Comment,Contact,Subscribe
+from .forms import PostForm, CommentForm, ContactForm, EmailForm
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 def home(request):
-  
+    
+   
 
-    return render (request, 'home.html' )
+    return render (request, 'index.html')
 
 def blog(request):
     posts = Post.objects.all()
@@ -16,13 +17,19 @@ def blog(request):
 
 
 def post_index(request):
+    form = EmailForm(request.POST or None)
+    if form.is_valid():
+        mail = form.save()
+        return redirect ('home')
+   
+  
     posts = Post.objects.all().order_by('-id')[:3]
-    return render (request, 'index.html', {"posts":posts})    
+    return render (request, 'index.html', {"posts":posts, 'form':form})    
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
     posts = Post.objects.all().order_by('-id')[:3]
-    postss= Post.objects.all().order_by('-published')[3:]
+    postss= Post.objects.all().order_by('-published')[1:4]
     form = CommentForm(request.POST or None)
    
     
@@ -49,13 +56,11 @@ def post_detail(request, id):
 def adminpost(request):
    
     contacts = Contact.objects.all()
-
-  
-    
-   
+    mails = Subscribe.objects.all()
     context = {
        
         'contacts':contacts,
+        'mails':mails,
       }
     return render (request, 'admin.html', context)
 @login_required
@@ -63,6 +68,7 @@ def post_create(request):
     form = PostForm(request.POST or None, request.FILES or None)
     
     posts = Post.objects.all()
+ 
    
     if form.is_valid():
         post = form.save()
@@ -85,6 +91,7 @@ def post_update(request, id):
         'post':post,
       }
     return render (request, 'post/update_post.html', context )
+
 @login_required
 def post_delete(request, id):
     post = get_object_or_404(Post, id=id)
@@ -102,8 +109,13 @@ def contact (request):
 
 def listing(request): 
    posts = Post.objects.all()
-   page = request.GET.get('page', 1)
+   
    paginator = Paginator(posts, 4)
+   page = request.GET.get('page')
+   if not page:
+    page = paginator.num_pages
+
+   postss= Post.objects.all().order_by('-published')[4:8]
    
    
    
@@ -115,4 +127,4 @@ def listing(request):
         posts = paginator.page(paginator.num_pages)
    
 
-   return render(request, 'blog.html', { 'posts':posts})
+   return render(request, 'blog.html', { 'posts':posts , 'postss':postss})
