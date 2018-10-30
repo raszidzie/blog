@@ -137,8 +137,10 @@ def listing(request):
    posts = Post.objects.all()
    
    postss= Post.objects.all().order_by('-published')[4:8]
-   
-   paginator = Paginator(posts, 4)
+   query = request.GET.get('q')
+   if query:
+       posts = posts.filter(title__icontains=query)
+   paginator = Paginator(posts, 6)
    page = request.GET.get('page')
    if not page:
     page = paginator.num_pages
