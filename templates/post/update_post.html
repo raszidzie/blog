@@ -158,19 +158,28 @@
                Admin
               </div>
               <div class="card-body ">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        
+                <form method="POST" enctype="multipart/form-data">
+                  {%csrf_token%}
+                  
 
 <div id="div_id_title" class="form-group"> <label for="id_title" class="control-label  requiredField">
-    Title<span class="asteriskField"></span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text" value={{post.title}}> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
-    Description<span class="asteriskField"></span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10">{{post.description}}</textarea> </div> </div> <div id="div_id_image" class="form-group"> <label for="id_image" class="control-label ">
-    Image
-</label> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file" value={{post.image.url}}> </div> </div>
-                
+      Başlıq<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text" value={{post.title}}> </div> </div> <div id="div_id_tag" class="form-group"> <label for="id_tag" class="control-label  requiredField">
+        Tag<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_tag" maxlength="120" name="tag" type="text" value={{post.tag}}> </div> </div><div id="div_id_category" class="form-group"> <label for="id_category" class="control-label ">
+      Kateqoriya
+  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_category" maxlength="100" name="category" type="text" value={{post.category}}> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
+      Məqalə<span class="asteriskField">*</span> </label>  <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10">{{post.description}}</textarea>  </div> </div>  <div id="div_id_source" class="form-group"> <label for="id_source" class="control-label ">
+      Önəmli Hissə (Məsələn Yunus Əmrədən bir şeir)
+  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_source" maxlength="300" name="source" type="text" value={{post.source}}> </div> </div> <div id="div_id_person" class="form-group"> <label for="id_person" class="control-label ">
+      Şəxs (Önəmli Hissəni deyən)
+  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_person" maxlength="50" name="person" type="text" value={{post.person}}> </div> </div> <div id="div_id_image" class="form-group"> <button for="id_image" class="btn btn-primary ">
+      Şəkil
+  </button> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
+
+
+
 
 <input type="submit" class="btn btn-primary">
-            </form>
+      </form>
               </div>
             </div>
           </div>

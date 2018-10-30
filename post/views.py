@@ -4,12 +4,18 @@ from .forms import PostForm, CommentForm, ContactForm, EmailForm
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import F
 # Create your views here.
 def home(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context={
+        'form':form,
+    } 
     
-   
 
-    return render (request, 'index.html')
+    return render (request, 'home.html' ,context)
 
 def blog(request):
     posts = Post.objects.all()
@@ -50,6 +56,14 @@ def post_detail(request, id):
         'postss':postss,    
         }
     return render (request, 'post/detail.html', context )
+def contact (request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context={
+        'form':form,
+    }    
+    return render (request, 'home.html',context)
 
 
 @login_required
@@ -72,6 +86,25 @@ def post_create(request):
    
     if form.is_valid():
         post = form.save()
+ 
+   
+  
+   
+  
+    paginator = Paginator(posts, 4)
+    page = request.GET.get('page')
+    if not page:
+        page = paginator.num_pages
+
+
+   
+   
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
         
         
     context={
@@ -98,25 +131,19 @@ def post_delete(request, id):
     post.delete()
     return redirect ('blog:create')
 
-def contact (request):
-    form = ContactForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context={
-        'form':form,
-    }    
-    return render (request, 'home.html',context)
+
 
 def listing(request): 
    posts = Post.objects.all()
+   
+   postss= Post.objects.all().order_by('-published')[4:8]
    
    paginator = Paginator(posts, 4)
    page = request.GET.get('page')
    if not page:
     page = paginator.num_pages
 
-   postss= Post.objects.all().order_by('-published')[4:8]
-   
+
    
    
    try:

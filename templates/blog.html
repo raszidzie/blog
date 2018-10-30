@@ -62,7 +62,7 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link ">Elanlar</a>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+                        <li class="nav-item"><a href="{% url 'blog:index' %}" class="nav-link ">Contact</a>
                         </li>
                       </ul>
                      
@@ -82,7 +82,7 @@
               {% for post in posts %}
               <!-- post -->
               <div class="post col-xl-6">
-                <div class="post-thumbnail"><a href="{% url 'blog:detail' post.id %}"><img src="/media/{{post.image}}" alt="..." class="img-fluid"></a></div>
+                <div class="post-thumbnail"><a href="{% url 'blog:detail' post.id %}"><img src="/media/{{post.image}}" alt="..." class="img-responsive" width="300px" height="300px"></a></div>
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">{{post.published}}</div>
@@ -105,21 +105,21 @@
             {% if posts.has_other_pages %}
             <ul class="pagination">
               {% if posts.has_previous %}
-                <li><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+                <li><a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
               {% else %}
-                <li class="disabled"><span>&laquo;</span></li>
+                <li class="disabled  btn btn-primary"><span>&laquo;</span></li>
               {% endif %}
               {% for i in posts.paginator.page_range %}
                 {% if posts.number == i %}
-                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                  <li class="active btn btn-primary"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
                 {% else %}
-                  <li><a href="?page={{ i }}">{{ i }}</a></li>
+                  <li><a class="btn btn-primary "href="?page={{ i }}">{{ i }}</a></li>
                 {% endif %}
               {% endfor %}
               {% if posts.has_next %}
-                <li><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+                <li><a class="btn btn-primary" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
               {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
+                <li class="disabled btn btn-primary"><span>&raquo;</span></li>
               {% endif %}
             </ul>
           {% endif %}
@@ -133,8 +133,8 @@
                   </header>
                   <form action="#" class="search-form">
                     <div class="form-group">
-                      <input type="search" placeholder="What are you looking for?">
-                      <button type="submit" class="submit"><i class="icon-search"></i></button>
+                      <input type="search" placeholder="Məqalə Axtar">
+                      <button type="submit" class="submit"><i class="fa fa-search"></i></button>
                     </div>
                   </form>
                 </div>
@@ -143,8 +143,8 @@
                   <header>
                     <h3 class="h6">Meqalələrdən</h3>
                   </header>
-                  {% for post in posts %}
-                  <div class="blog-posts"><a href="#">
+                  {% for post in postss %}
+                  <div class="blog-posts"><a href="{% url 'blog:detail' post.id %}">
                       <div class="item d-flex align-items-center">
                         <div class="image"><img src="/media/{{post.image}}" alt="..." class="img-fluid"></div>
                         <div class="title"><strong>{{post.title}}</strong>
@@ -162,10 +162,11 @@
                 <div class="widget categories">
                   <header>
                     <h3 class="h6">Kateqoriyalar</h3>
-                  </header>
-                  {% for post in posts %}
-                  <div class="item d-flex justify-content-between"><a href="#">{{post.category}}</a><span></span></div>
-                  {% endfor %}
+                  
+                  <div class="item d-flex justify-content-between"><a href="#">Məqalə</a><span></span></div>
+                  <div class="item d-flex justify-content-between"><a href="#">Təhsil</a><span></span></div>
+                  <div class="item d-flex justify-content-between"><a href="#">Təbiət</a><span></span></div>
+                
                 </div>
                 <!-- Widget [Tags Cloud Widget]-->
                 <div class="widget tags">       
@@ -173,9 +174,9 @@
                     <h3 class="h6">Tags</h3>
                   </header>
                   <ul class="list-inline">
-                    {% for post in posts %}
-                    <li class="list-inline-item"><a href="#" class="tag">#{{post.tag}}</a></li>
-                   {% endfor %}
+                    <li class="list-inline-item"><a href="#" class="tag">#təbiətgözəldir</a></li>
+                    <li class="list-inline-item"><a href="#" class="tag">#təhsilönəmlidir</a></li>
+                    <li class="list-inline-item"><a href="#" class="tag">#sədəqəverin</a></li>
                   </ul>
                 </div>
               </aside>
@@ -190,7 +191,7 @@
                     <h6 class="text-white">LalaContact</h6>
                   </div>
                   <div class="contact-details">
-                    <p>Email: lalahelpme@gmail.com</p>
+                    <p>Email: lalahelpinfo@gmail.com</p>
                     <ul class="social-menu">
                       <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                       <li class="list-inline-item"><a href="instagram.com"><i class="fa fa-instagram"></i></a></li>
@@ -201,30 +202,16 @@
                 <div class="col-md-4">
                   <div class="menus d-flex">
                     <ul class="list-unstyled">
-                      <li> <a href="#">My Account</a></li>
-                      <li> <a href="#">Add Listing</a></li>
-                      <li> <a href="#">Pricing</a></li>
+                      <li> <a href="#">Blog</a></li>
+                      <li> <a href="#">Elanlar</a></li>
+                      <li> <a href="#">Contact</a></li>
                       <li> <a href="#">Privacy &amp; Policy</a></li>
                     </ul>
-                    <ul class="list-unstyled">
-                      <li> <a href="#">Our Partners</a></li>
-                      <li> <a href="#">FAQ</a></li>
-                      <li> <a href="#">How It Works</a></li>
-                      <li> <a href="#">Contact</a></li>
                     </ul>
+                    
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="latest-posts"><a href="#">
-                    {% for post in postss%}
-                      <div class="post d-flex align-items-center">
-                        <a href="{% url 'blog:detail' post.id %}">
-                        <div class="image"><img src="/media/{{post.image}}" alt="..." class="img-fluid"></div>
-                        <div class="title"><strong>{{post.title}}</strong><span class="date last-meta">{{post.published}}</span></div>
-                      </div></a>
-                        {% endfor %}
-                      
-                </div>
+              
               </div>
             </div>
             <div class="copyrights">

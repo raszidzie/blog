@@ -66,11 +66,11 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a href="{% url 'home'%}" class="nav-link ">Ana Səhifə</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+              <li class="nav-item"><a href="{% url 'blogpage'%}" class="nav-link ">Blog</a>
               </li>
-              <li class="nav-item"><a href="post.html" class="nav-link active ">Elanlar</a>
+              <li class="nav-item"><a href="#" class="nav-link active ">Elanlar</a>
               </li>
-              <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+              <li class="nav-item"><a href="{% url 'blog:index'%}" class="nav-link ">Contact</a>
               </li>
             </ul>
             
@@ -170,8 +170,8 @@
             </header>
             <form action="#" class="search-form">
               <div class="form-group">
-                <input type="search" placeholder="What are you looking for?">
-                <button type="submit" class="submit"><i class="icon-search"></i></button>
+                <input type="search" placeholder="Məqalə Axtar">
+                <button type="submit" class="submit"><i class="fa fa-search"></i></button>
               </div>
             </form>
           </div>
@@ -209,9 +209,11 @@
               <h3 class="h6">Tags</h3>
             </header>
             <ul class="list-inline">
-              {% for post in posts %}
-              <li class="list-inline-item"><a href="#" class="tag">#{{post.tag}}</a></li>
-             {% endfor %}
+             
+              <li class="list-inline-item"><a href="#" class="tag">#təbiətgözəldir</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#təhsilönəmlidir</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#sədəqəverin</a></li>
+         
             </ul>
           </div>
         </aside>
@@ -226,7 +228,7 @@
                 <h6 class="text-white">LalaContact</h6>
               </div>
               <div class="contact-details">
-                <p>Email: lalahelpme@gmail.com</p>
+                <p>Email: lalahelpinfo@gmail.com</p>
                 <ul class="social-menu">
                   <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                   <li class="list-inline-item"><a href="instagram.com"><i class="fa fa-instagram"></i></a></li>

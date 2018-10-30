@@ -11,7 +11,7 @@ class Post(models.Model):
     person = models.CharField(max_length=50, blank=True)
     published = models.DateField( auto_now_add=True)
     image = models.FileField(null=True, blank=True )
-    tag = models.CharField(max_length="200", blank=True )
+    tag = models.CharField(max_length=200, blank=True )
   
 
 

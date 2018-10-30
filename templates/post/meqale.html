@@ -166,9 +166,8 @@
       Başlıq<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text"> </div> </div> <div id="div_id_category" class="form-group"> <label for="id_category" class="control-label ">
       Kateqoriya
   </label> <div class="controls "> <input class="textinput textInput form-control" id="id_category" maxlength="100" name="category" type="text"> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
-      Məqalə<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> <div id="div_id_tag" class="form-group"> <label for="id_tag" class="control-label ">
-      Taglar
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_tag" maxlength="200" name="tag" type="text"> </div> </div> <div id="div_id_source" class="form-group"> <label for="id_source" class="control-label ">
+      Məqalə<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> <div id="div_id_tag" class="form-group"> <label for="id_tag" class="control-label  requiredField">
+        Tag<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_tag" maxlength="120" name="tag" type="text"> </div> </div><div id="div_id_source" class="form-group"> <label for="id_source" class="control-label ">
       Önəmli Hissə (Məsələn Yunus Əmrədən bir şeir)
   </label> <div class="controls "> <input class="textinput textInput form-control" id="id_source" maxlength="300" name="source" type="text"> </div> </div> <div id="div_id_person" class="form-group"> <label for="id_person" class="control-label ">
       Şəxs (Önəmli Hissəni deyən)
@@ -228,7 +227,28 @@
                     </div>
           </div>
 
-
+          <!-- Pagination -->
+          {% if posts.has_other_pages %}
+          <ul class="pagination">
+            {% if posts.has_previous %}
+              <li><a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+              <li class="disabled  btn btn-primary"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in posts.paginator.page_range %}
+              {% if posts.number == i %}
+                <li class="active btn btn-primary"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li><a class="btn btn-primary "href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if posts.has_next %}
+              <li><a class="btn btn-primary" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+            {% else %}
+              <li class="disabled btn btn-primary"><span>&raquo;</span></li>
+            {% endif %}
+          </ul>
+        {% endif %}
           
 
         </div>

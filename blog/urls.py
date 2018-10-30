@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from post.views import home,contact,post_index,blog,listing
+from post.views import home,post_index,blog,listing
 from django.conf import settings 
 
 
