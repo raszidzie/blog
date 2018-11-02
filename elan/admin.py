@@ -6,4 +6,5 @@ class ElanAdmin(admin.ModelAdmin):
     class Meta:
 
         model = Elan
+        extra=3
 admin.site.register(Elan,ElanAdmin)        

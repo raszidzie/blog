@@ -26,7 +26,7 @@
 	
 
 		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="/static/css/elanstyle.css"/>
+		<link type="text/css" rel="stylesheet" href="/static/css/elanlardesign.css"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,13 +43,11 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i>lalahelpme@gmail.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i></a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i>lalahelpinfo@gmail.com</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+						
+					<!--<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -76,12 +74,11 @@
 							<div class="header-search">
 								<form>
 									<select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
+										<option value="0">Bütün</option>
+										
 									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Search</button>
+									<input class="input" placeholder="Elan Axtar">
+									<button class="search-btn">Axtar</button>
 								</form>
 							</div>
 						</div>
@@ -91,17 +88,18 @@
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
 								<!-- Wishlist -->
-								<div>
+								<!--<div>
 									<a href="#">
 										<i class="fa fa-heart-o"></i>
 										<span>Your Wishlist</span>
 										<div class="qty">2</div>
 									</a>
 								</div>
+								-->
 								<!-- /Wishlist -->
 
 								<!-- Cart -->
-								<div class="dropdown">
+							<!--	<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
@@ -140,7 +138,7 @@
 											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<!-- /Cart -->
 
 								<!-- Menu Toogle -->
@@ -171,14 +169,14 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
-					</ul>
+                            <li class="active"><a href="{% url 'elanlar:main' %}">Ana Sehife</a></li>
+                            <li><a href="{% url 'elanlar:kids' %}"">Uşaqlar</a></li>
+                            <li><a href="{% url 'elanlar:edu' %}">Təhsil</a></li>
+                            <li><a href="{% url 'elanlar:work' %}">İş</a></li>
+                            <li><a href="{% url 'elanlar:service' %}">Xidmətlər</a></li>
+                            <li><a href="{% url 'elanlar:personal' %}">Şəxsi Əşyalar</a></li>
+                            <li><a href="{% url 'elanlar:apart' %}">Daşınmaz Əmlak</a></li>
+                        </ul>
 					<!-- /NAV -->
 				</div>
 				<!-- /responsive-nav -->
@@ -197,11 +195,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="/static/img/shop01.png" alt="">
+								<img src="/static/img/kids.jpg" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Laptop<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Uşaqlar<br>Aləmi</h3>
+								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -211,11 +209,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="/static/img/shop03.png" alt="">
+								<img src="/static/img/work.jpg" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>İş<br>Təklifləri</h3>
+								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -225,11 +223,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="/static/img/shop02.png" alt="">
+								<img src="/static/img/things.png" alt="">
 							</div>
 							<div class="shop-body">
-								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<h3>Xidmətlər<br></h3>
+								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -251,8 +249,8 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">New Products</h3>
-							<div class="section-nav">
+							<h3 class="title">Yeni Elanlar</h3>
+							<!--<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
 									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
@@ -260,6 +258,7 @@
 									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
 								</ul>
 							</div>
+						-->
 						</div>
 					</div>
 					<!-- /section title -->
@@ -283,21 +282,15 @@
 												
 												<img src="/media/{{item.image}}" alt="">
 												<div class="product-label">
-													<span class="new">NEW</span>
+													<span class="new">Yeni</span>
 												</div>
 											</div>
 										</a>
 											<div class="product-body">
 												<p class="product-category">{{item.itemCategory}}</p>
 												<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
-												<h4 class="product-price">{{item.elanPrice}} <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
+												<h4 class="product-price">{{item.elanPrice}} AZN <del class="product-old-price">$990.00</del></h4>
+												
 												<div class="product-btns">
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Yadda Saxla</span></button>
 													<button class="quick-view"><a href="{% url 'elanlar:elandetail' item.id%}"><i class="fa fa-eye"></i><span class="tooltipp">Elana Bax</a></span></button>
@@ -388,10 +381,11 @@
 				<!-- row -->
 				<div class="row">
 
-					<!-- section title -->
+					
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title"> Yeni Elanlar</h3>
+							<!--
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
@@ -400,9 +394,10 @@
 									<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
 								</ul>
 							</div>
+							-->
 						</div>
 					</div>
-					<!-- /section title -->
+					
 
 					<!-- Products tab & slick -->
 					<div class="col-md-12">
@@ -411,50 +406,22 @@
 								<!-- tab -->
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
-										<!-- product -->
+										
+										{% for item in workCategory %}
 										<div class="product">
+												<a href="{% url 'elanlar:elandetail' item.id%}">
 											<div class="product-img">
-												<img src="/static/img/product06.png" alt="">
+												
+												<img src="/media/{{item.image}}" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
+													<span class="new">Yeni</span>
 												</div>
 											</div>
+										</a>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="/static/img/product07.png" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category">{{item.itemCategory}}</p>
+												<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
+												<h4 class="product-price">{{item.elanPrice}} <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -463,98 +430,15 @@
 													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Yadda Saxla</span></button>
+													<button class="quick-view"><a href="{% url 'elanlar:elandetail' item.id%}"><i class="fa fa-eye"></i><span class="tooltipp">Elana Bax</a></span></button>
 												</div>
 											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
+											
+										
 										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="/static/img/product08.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="/static/img/product09.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="/static/img/product01.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
+										{% endfor %}
+									
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
@@ -576,9 +460,10 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
+					   <!--CATEGORY STARTS HERE -->
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">İş</h4>
+							<h4 class="title">UŞAQLAR ALƏMİ</h4>
 							<div class="section-nav">
 								<div id="slick-nav-3" class="products-slick-nav"></div>
 							</div>
@@ -586,89 +471,24 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-3">
 							<div>
-								<!-- product widget -->
+								
+								{% for item in kidsCategory %}
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="/static/img/product07.png" alt="">
+										<img src="/media/{{item.image}}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<p class="product-category">Uşaqlar Aləmi</p>
+										<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
+										<h4 class="product-price">{{item.elanPrice}} <!--<del class="product-old-price">$990.00</del>--></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product08.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product09.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
-							</div>
-
-							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product01.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product02.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product03.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+								{% endfor %}
+							
 							</div>
 						</div>
 					</div>
-
+           <!--CATEGORY STARTS HERE -->
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
 							<h4 class="title">Təhsil</h4>
@@ -679,94 +499,28 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-4">
 							<div>
-								<!-- product widget -->
+								{% for item in eduCategory %}
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="/static/img/product04.png" alt="">
+										<img src="/media/{{item.image}}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<p class="product-category">Təhsil</p>
+										<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
+										<h4 class="product-price">{{item.elanPrice}} <!--<del class="product-old-price">$990.00</del>--></h4>
 									</div>
 								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product05.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product06.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
-							</div>
-
-							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product07.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product08.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product09.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+								{% endfor %}
+								
 							</div>
 						</div>
 					</div>
 
 					<div class="clearfix visible-sm visible-xs"></div>
-
+   <!--CATEGORY STARTS HERE -->
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Uşaq Avadanlıqları</h4>
+							<h4 class="title">Xidmətlər</h4>
 							<div class="section-nav">
 								<div id="slick-nav-5" class="products-slick-nav"></div>
 							</div>
@@ -774,85 +528,19 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-5">
 							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product01.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product02.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product03.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
-							</div>
-
-							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product04.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product05.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="/static/img/product06.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+									{% for item in serviceCategory %}
+									<div class="product-widget">
+											<div class="product-img">
+												<img src="/media/{{item.image}}" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">Xidmətlər</p>
+												<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
+												<h4 class="product-price">{{item.elanPrice}} <!--<del class="product-old-price">$990.00</del>--></h4>
+											</div>
+										</div>
+								{% endfor %}
+							
 							</div>
 						</div>
 					</div>
@@ -872,10 +560,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+							<p>Endirimlərdən xəbərdar <strong>OLUN</strong></p>
 							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+								<input class="input" type="email" placeholder="Email yaz">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Abunə ol</button>
 							</form>
 							<ul class="newsletter-follow">
 								<li>
@@ -911,24 +599,24 @@
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>Elan qoymaq istəyirsiniz? - <a href="{% url 'blog:index' %}" style="text-decoration: none">Elan qoymaq isteyirem</a></p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									
+							
+									<li><a href="#"><i class="fa fa-envelope-o"></i>lalahelpinfo@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Kategoriyalar</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Bütün</a></li>
+									<li><a href="#">İş</a></li>
+									<li><a href="#">Təhsil</a></li>
+									<li><a href="#">Xidmətlər</a></li>
+									<li><a href="#">Uşaqlar Aləmi</a></li>
 								</ul>
 							</div>
 						</div>
@@ -937,29 +625,17 @@
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Information</h3>
+								<h3 class="footer-title">LalaHelpMe</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Ana Səhifə</a></li>
+									<li><a href="{% url 'blogpage' %}">Blog</a></li>
+									<li><a href="#">Contact</a></li>
 									<li><a href="#">Terms & Conditions</a></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
+						
 					</div>
 					<!-- /row -->
 				</div>
@@ -983,7 +659,7 @@
 							</ul>
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Bütün hüquqlar qorunur | Created  by <a href="#" target="_blank">Rashid Maharramli</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
 						</div>

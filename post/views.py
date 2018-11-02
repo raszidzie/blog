@@ -80,25 +80,14 @@ def adminpost(request):
 @login_required
 def post_create(request):
     form = PostForm(request.POST or None, request.FILES or None)
-    
     posts = Post.objects.all()
- 
-   
     if form.is_valid():
         post = form.save()
- 
-   
-  
-   
   
     paginator = Paginator(posts, 4)
     page = request.GET.get('page')
     if not page:
         page = paginator.num_pages
-
-
-   
-   
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
