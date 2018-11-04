@@ -1,4 +1,4 @@
-from .models import ElanComment
+from .models import ElanComment,Elan
 from django import forms
 
 class CommentForm(forms.ModelForm):
@@ -10,4 +10,18 @@ class CommentForm(forms.ModelForm):
             'comment',
 
         ]
-                
+class ElanForm(forms.ModelForm):
+
+    class Meta:
+        model=Elan
+        fields=[
+            'elanTitle',
+            'elanDescription',
+            'elanPrice',
+            'owner',
+            'ownerPhone',
+            'ownerMail',
+            'ownerCity',
+            'itemCategory',
+            'image'
+        ]                

@@ -159,27 +159,31 @@
               </div>
               <div class="card-body ">
                 <form method="POST" enctype="multipart/form-data">
-                  {%csrf_token%}
-                  
-
-<div id="div_id_title" class="form-group"> <label for="id_title" class="control-label  requiredField">
-      Başlıq<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text"> </div> </div> <div id="div_id_category" class="form-group"> <label for="id_category" class="control-label ">
-      Kateqoriya
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_category" maxlength="100" name="category" type="text"> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
-      Məqalə<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> <div id="div_id_tag" class="form-group"> <label for="id_tag" class="control-label  requiredField">
-        Tag<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_tag" maxlength="120" name="tag" type="text"> </div> </div><div id="div_id_source" class="form-group"> <label for="id_source" class="control-label ">
-      Önəmli Hissə (Məsələn Yunus Əmrədən bir şeir)
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_source" maxlength="300" name="source" type="text"> </div> </div> <div id="div_id_person" class="form-group"> <label for="id_person" class="control-label ">
-      Şəxs (Önəmli Hissəni deyən)
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_person" maxlength="50" name="person" type="text"> </div> </div> <div id="div_id_image" class="form-group"> <button for="id_image" class="btn btn-primary ">
-      Şəkil
-  </button> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
-
-
-
-
-<input type="submit" class="btn btn-primary">
-      </form>
+                    {%csrf_token%}
+                    
+  
+  <div id="div_id_elanTitle" class="form-group"> <label for="id_elanTitle" class="control-label  requiredField">
+                  Elanın Adı<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanTitle" maxlength="200" name="elanTitle" type="text"> </div> </div> <div id="div_id_elanDescription" class="form-group"> <label for="id_elanDescription" class="control-label  requiredField">
+                  Elan Haqqında<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_elanDescription" name="elanDescription" rows="10"></textarea> </div> </div> <div id="div_id_elanPrice" class="form-group"> <label for="id_elanPrice" class="control-label  requiredField">
+                  Qiymət<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanPrice" maxlength="200" name="elanPrice" type="text"> </div> </div> <div id="div_id_owner" class="form-group"> <label for="id_owner" class="control-label  requiredField">
+                  Elanın Sahibi<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_owner" maxlength="200" name="owner" type="text"> </div> </div> <div id="div_id_ownerPhone" class="form-group"> <label for="id_ownerPhone" class="control-label  requiredField">
+                  Telefon<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerPhone" maxlength="200" name="ownerPhone" type="text"> </div> </div> <div id="div_id_ownerMail" class="form-group"> <label for="id_ownerMail" class="control-label ">
+                  Mail
+              </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerMail" maxlength="200" name="ownerMail" type="text"> </div> </div> <div id="div_id_ownerCity" class="form-group"> <label for="id_ownerCity" class="control-label  requiredField">
+                  Şəhər<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerCity" maxlength="30" name="ownerCity" type="text"> </div> </div> <div id="div_id_itemCategory" class="form-group"> <label for="id_itemCategory" class="control-label  requiredField">
+                  Kategoriya<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_itemCategory" maxlength="200" name="itemCategory" type="text"> </div> </div> <div id="div_id_image" class="form-group"> <label for="id_image" class="control-label ">
+                  Şəkil
+              </label> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
+  
+                    
+  
+  
+  
+  
+  
+  
+  <input type="submit" class="btn btn-primary">
+        </form>
               </div>
             </div>
             <div class="col-md-12">
@@ -189,8 +193,8 @@
                       </div>
                       <div class="card-body ">
                             <div class="container">
-                                    <h2>Meqaleler</h2>
-                                    <p>Burda Redakte Etmek olar, ve Meqaleleri silmek olar</p>            
+                                    <h2>Elanlar</h2>
+                                    <p>Burda Redakte Etmek olar, ve Elanlar silmek olar</p>            
                                     <table class="table">
                                       <thead>
                                         <tr>
@@ -200,15 +204,16 @@
                                         </tr>
                                       </thead>
                                       <tbody>
-                                            {% for post in posts %}
+                                            {% for elan in items %}
                                         <tr>
-                                          <td>{{post.title}}</td>
-                                          <td> <a href="{% url 'blog:update' post.id %}">
+                                          <td>{{elan.elanTitle}}</td>
+                                          <td>{{elan.owner}}</td>
+                                          <td> <a href="{% url 'elanlar:elanupdate' elan.id %}">
                                                 <i class="fa fa-edit"></i>
                                                
                                               </a> </td>
                                               <td>
-                                                    <a href="{% url 'blog:delete' post.id %}">
+                                                    <a href="">
                                                             <i class="fa fa-trash"></i>
             
                                               </td>

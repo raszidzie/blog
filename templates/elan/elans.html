@@ -29,8 +29,9 @@
          <link type="text/css" rel="stylesheet" href="/static/css/elanlardesign.css"/>
          <style>
          .responsive {
-    width: 100%;
-    height: auto;
+			max-width: 100%;
+  width: 200px;
+  height: 250px;
 }
          </style>
 
@@ -80,7 +81,7 @@
                                 <div class="header-search">
                                     <form>
                                         <select class="input-select">
-                                            <option value="0">Bütün</option>
+                                            <option value="0"></option>
                                             
                                         </select>
                                         <input class="input" placeholder="Elan Axtar">
@@ -278,7 +279,7 @@
 								<div class="product-body">
 									
 									<h3 class="product-name"><a href="#">{{new.elanTitle}}</a></h3>
-									<h4 class="product-price">{{new.elanPrice}}</h4>
+									<h4 class="product-price">{{new.elanPrice}} AZN</h4>
 								</div>
 							</div>
 							{% endfor %}
@@ -303,7 +304,7 @@
 								<div class="product">
                                     	<a href="{% url 'elanlar:elandetail' item.id%}">
 									<div class="product-img">
-										<img src="/media/{{item.image}}" height="250px" alt="">
+										<img src="/media/{{item.image}}" class="responsive" alt="">
 										<!--<div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
@@ -313,7 +314,7 @@
 									<div class="product-body">
 										<p class="product-category">{{item.itemCategory}}</p>
 										<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
-										<h4 class="product-price"> {{item.elanPrice}}</h4>
+										<h4 class="product-price"> {{item.elanPrice}} AZN</h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -384,10 +385,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+							<p>Endirimlərdən xəbərdar <strong>OLUN</strong></p>
 							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+								<input class="input" type="email" placeholder="Email yaz">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Abunə ol</button>
 							</form>
 							<ul class="newsletter-follow">
 								<li>
@@ -423,24 +424,24 @@
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>Elan qoymaq istəyirsiniz? - <a href="{% url 'blog:index' %}" style="text-decoration: none">Elan qoymaq isteyirem</a></p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									
+							
+									<li><a href="#"><i class="fa fa-envelope-o"></i>lalahelpinfo@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Kategoriyalar</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Bütün</a></li>
+									<li><a href="#">İş</a></li>
+									<li><a href="#">Təhsil</a></li>
+									<li><a href="#">Xidmətlər</a></li>
+									<li><a href="#">Uşaqlar Aləmi</a></li>
 								</ul>
 							</div>
 						</div>
@@ -449,29 +450,17 @@
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Information</h3>
+								<h3 class="footer-title">LalaHelpMe</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Ana Səhifə</a></li>
+									<li><a href="{% url 'blogpage' %}">Blog</a></li>
+									<li><a href="#">Contact</a></li>
 									<li><a href="#">Terms & Conditions</a></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
+						
 					</div>
 					<!-- /row -->
 				</div>
@@ -495,7 +484,7 @@
 							</ul>
 							<span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Bütün hüquqlar qorunur | Created  by <a href="#" target="_blank">Rashid Maharramli</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
 						</div>

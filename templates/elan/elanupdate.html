@@ -62,9 +62,9 @@
                 </a>
               </li>
               <li >
-                <a href="{% url 'elanlar:elanadmin' %}">
+                <a href="fa fa-tasks">
                   <i class="fa fa-tasks"></i>
-                  <p>Elanlar</p>
+                  <p>Tapsiriqlar</p>
                 </a>
               </li>
               <li>
@@ -159,97 +159,35 @@
               </div>
               <div class="card-body ">
                 <form method="POST" enctype="multipart/form-data">
-                  {%csrf_token%}
-                  
-
-<div id="div_id_title" class="form-group"> <label for="id_title" class="control-label  requiredField">
-      Başlıq<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_title" maxlength="120" name="title" type="text"> </div> </div> <div id="div_id_category" class="form-group"> <label for="id_category" class="control-label ">
-      Kateqoriya
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_category" maxlength="100" name="category" type="text"> </div> </div> <div id="div_id_description" class="form-group"> <label for="id_description" class="control-label  requiredField">
-      Məqalə<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_description" name="description" rows="10"></textarea> </div> </div> <div id="div_id_tag" class="form-group"> <label for="id_tag" class="control-label  requiredField">
-        Tag<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_tag" maxlength="120" name="tag" type="text"> </div> </div><div id="div_id_source" class="form-group"> <label for="id_source" class="control-label ">
-      Önəmli Hissə (Məsələn Yunus Əmrədən bir şeir)
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_source" maxlength="300" name="source" type="text"> </div> </div> <div id="div_id_person" class="form-group"> <label for="id_person" class="control-label ">
-      Şəxs (Önəmli Hissəni deyən)
-  </label> <div class="controls "> <input class="textinput textInput form-control" id="id_person" maxlength="50" name="person" type="text"> </div> </div> <div id="div_id_image" class="form-group"> <button for="id_image" class="btn btn-primary ">
-      Şəkil
-  </button> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
-
-
-
-
-<input type="submit" class="btn btn-primary">
-      </form>
+                    {%csrf_token%}
+                    
+  
+  <div id="div_id_elanTitle" class="form-group"> <label for="id_elanTitle" class="control-label  requiredField">
+                  Elanın Adı<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanTitle" maxlength="200" name="elanTitle" type="text" value={{elan.elanTitle}}> </div> </div> <div id="div_id_elanDescription" class="form-group"> <label for="id_elanDescription" class="control-label  requiredField">
+                  Elan Haqqında<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_elanDescription" name="elanDescription" rows="10">{{elan.elanDescription}}</textarea> </div> </div> <div id="div_id_elanPrice" class="form-group"> <label for="id_elanPrice" class="control-label  requiredField">
+                  Qiymət<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanPrice" maxlength="200" name="elanPrice" type="text" value={{elan.elanPrice}}> </div> </div> <div id="div_id_owner" class="form-group"> <label for="id_owner" class="control-label  requiredField">
+                  Elanın Sahibi<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_owner" maxlength="200" name="owner" type="text" value={{elan.owner}}> </div> </div> <div id="div_id_ownerPhone" class="form-group"> <label for="id_ownerPhone" class="control-label  requiredField">
+                  Telefon<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerPhone" maxlength="200" name="ownerPhone" type="text" value={{elan.ownerPhone}}> </div> </div> <div id="div_id_ownerMail" class="form-group"> <label for="id_ownerMail" class="control-label ">
+                  Mail
+              </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerMail" maxlength="200" name="ownerMail" type="text" value={{elan.ownerMail}}> </div> </div> <div id="div_id_ownerCity" class="form-group"> <label for="id_ownerCity" class="control-label  requiredField">
+                  Şəhər<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerCity" maxlength="30" name="ownerCity" type="text" value={{elan.ownerCity}}> </div> </div> <div id="div_id_itemCategory" class="form-group"> <label for="id_itemCategory" class="control-label  requiredField">
+                  Kategoriya<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_itemCategory" maxlength="200" name="itemCategory" type="text" value={{elan.itemCategory}}> </div> </div> <div id="div_id_image" class="form-group"> <button for="id_image" class="btn btn-primary ">
+                  Şəkil
+                  </button> <div class="controls "> <input class="clearablefileinput btn btn-primary" id="id_image" name="image" type="file" value={{elan.image}}> </div> </div>
+  
+                    
+  
+  
+  
+  
+  
+  
+  <input type="submit" class="btn btn-primary">
+        </form>
               </div>
             </div>
-            <div class="col-md-12">
-                    <div class="card ">
-                      <div class="card-header ">
-                       Admin
-                      </div>
-                      <div class="card-body ">
-                            <div class="container">
-                                    <h2>Meqaleler</h2>
-                                    <p>Burda Redakte Etmek olar, ve Meqaleleri silmek olar</p>            
-                                    <table class="table">
-                                      <thead>
-                                        <tr>
-                                          <th>Basliq</th>
-                                          
-                                          
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                            {% for post in posts %}
-                                        <tr>
-                                          <td>{{post.title}}</td>
-                                          <td> <a href="{% url 'blog:update' post.id %}">
-                                                <i class="fa fa-edit"></i>
-                                               
-                                              </a> </td>
-                                              <td>
-                                                    <a href="{% url 'blog:delete' post.id %}">
-                                                            <i class="fa fa-trash"></i>
-            
-                                              </td>
-                                          
-                                        </tr>
-                                        
-                                               
-                                        
-                                        {% endfor %}
-                                       
-                                       
-                                      </tbody>
-                                    </table>
-                                  </div>
-                      </div>
-                    </div>
-          </div>
-
-          <!-- Pagination -->
-          {% if posts.has_other_pages %}
-          <ul class="pagination">
-            {% if posts.has_previous %}
-              <li><a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-              <li class="disabled  btn btn-primary"><span>&laquo;</span></li>
-            {% endif %}
-            {% for i in posts.paginator.page_range %}
-              {% if posts.number == i %}
-                <li class="active btn btn-primary"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-              {% else %}
-                <li><a class="btn btn-primary "href="?page={{ i }}">{{ i }}</a></li>
-              {% endif %}
-            {% endfor %}
-            {% if posts.has_next %}
-              <li><a class="btn btn-primary" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
-            {% else %}
-              <li class="disabled btn btn-primary"><span>&raquo;</span></li>
-            {% endif %}
-          </ul>
-        {% endif %}
-          
+           
+         
 
         </div>
       </div>

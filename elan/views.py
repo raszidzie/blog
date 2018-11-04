@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404,redirect,HttpResponseRedi
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Elan, ElanComment
-from .forms import CommentForm
+from .forms import CommentForm,ElanForm
 
 def elan(request):
      items =  Elan.objects.all().order_by('-id')[:3]
@@ -53,10 +53,12 @@ def elandetail(request, id):
     return render (request, 'elan/elandetail.html', context)
 
 def store(request):
+    itemsnew =  Elan.objects.all().order_by('-id')[:3]
     items =  Elan.objects.all()
    
     context={
         'items':items,
+        'itemsnew':itemsnew,
     }
     return render (request, 'elan/elans.html', context)
 
@@ -174,3 +176,34 @@ def apart (request):
         'itemsnew':itemsnew,
     }
     return render (request, 'elan/elans.html', context)    
+
+
+@login_required
+def elanadmin(request):
+   
+    form = ElanForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.user = request.user
+        form.save()
+    items = Elan.objects.all()
+   
+    context = {
+       
+        'form':form,
+        'items':items,
+        
+      }
+    return render (request, 'elan/elancreate.html', context)    
+
+@login_required
+def elan_update(request, id):
+    elan = get_object_or_404(Elan, id=id)
+    form = ElanForm(request.POST or None, request.FILES or None, instance=elan)
+    if form.is_valid():
+        elan=form.save()
+        return redirect('elanlar:elanadmin')
+    context={
+        'elan':elan
+    }   
+    return render (request, 'elan/elanupdate.html', context) 
