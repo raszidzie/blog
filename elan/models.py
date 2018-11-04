@@ -3,6 +3,15 @@ from django.db import models
 
 # Create your models here.
 class Elan (models.Model):
+    CATEGORY_CHOICES = (
+    ('work','WORK'),
+    ('kids', 'KIDS'),
+    ('services','SERVICES'),
+    ('education','EDUCATION'),
+    ('personal','PPERSONAL'),
+    ('apart','APART'),
+    
+    )
     user = models.ForeignKey('auth.User', related_name='elans')
     elanTitle = models.CharField(max_length=200)
     elanDescription = models.TextField()
@@ -11,7 +20,7 @@ class Elan (models.Model):
     ownerPhone = models.CharField(max_length=200)
     ownerMail = models.CharField(max_length=200, blank=True)
     ownerCity = models.CharField(max_length=30)
-    itemCategory = models.CharField(max_length=200)
+    itemCategory = models.CharField(max_length=200, choices = CATEGORY_CHOICES)
     image = models.FileField(null=True, blank=True)
 
 

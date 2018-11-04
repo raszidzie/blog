@@ -103,16 +103,13 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-               
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
+             <!--SEARCH BAR -->
+             <form role="search" method="GET" action="">
+                <div class="form-group row">
+                  <input type="text" class="form-control col-sm-9"name="q" placeholder="Məqalə Axtar">
+                  <button class="btn btn-primary col-sm-3"type="submit" class="submit"><i class="fa fa-search"></i></button>
                 </div>
-              </div>
-            </form>
+              </form>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'blog:index'%}">
@@ -161,8 +158,9 @@
                 <form method="POST" enctype="multipart/form-data">
                     {%csrf_token%}
                     
+                    
   
-  <div id="div_id_elanTitle" class="form-group"> <label for="id_elanTitle" class="control-label  requiredField">
+ <div id="div_id_elanTitle" class="form-group"> <label for="id_elanTitle" class="control-label  requiredField">
                   Elanın Adı<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanTitle" maxlength="200" name="elanTitle" type="text"> </div> </div> <div id="div_id_elanDescription" class="form-group"> <label for="id_elanDescription" class="control-label  requiredField">
                   Elan Haqqında<span class="asteriskField">*</span> </label> <div class="controls "> <textarea class="textarea form-control" cols="40" id="id_elanDescription" name="elanDescription" rows="10"></textarea> </div> </div> <div id="div_id_elanPrice" class="form-group"> <label for="id_elanPrice" class="control-label  requiredField">
                   Qiymət<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_elanPrice" maxlength="200" name="elanPrice" type="text"> </div> </div> <div id="div_id_owner" class="form-group"> <label for="id_owner" class="control-label  requiredField">
@@ -171,10 +169,17 @@
                   Mail
               </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerMail" maxlength="200" name="ownerMail" type="text"> </div> </div> <div id="div_id_ownerCity" class="form-group"> <label for="id_ownerCity" class="control-label  requiredField">
                   Şəhər<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ownerCity" maxlength="30" name="ownerCity" type="text"> </div> </div> <div id="div_id_itemCategory" class="form-group"> <label for="id_itemCategory" class="control-label  requiredField">
-                  Kategoriya<span class="asteriskField">*</span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_itemCategory" maxlength="200" name="itemCategory" type="text"> </div> </div> <div id="div_id_image" class="form-group"> <label for="id_image" class="control-label ">
+                          ItemCategory<span class="asteriskField">*</span> </label> <div class="controls "> <select class="select form-control" id="id_itemCategory" name="itemCategory">
+          <option value="" selected="selected">---------</option>
+          <option value="work">İş</option>
+          <option value="kids">Uşaqlar</option>
+          <option value="services">Xidmətlər</option>
+          <option value="education">Təhsil</option>
+          <option value="personal">Şəxsi əşyalar</option>
+          <option value="apart">Daşınmaz Əmlak</option>
+          </select> </div> </div><div id="div_id_image" class="form-group"> <button for="id_image" class="btn btn-primary ">
                   Şəkil
-              </label> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
-  
+                  </button> <div class="controls "> <input class="clearablefileinput" id="id_image" name="image" type="file"> </div> </div>
                     
   
   
@@ -213,7 +218,7 @@
                                                
                                               </a> </td>
                                               <td>
-                                                    <a href="">
+                                                    <a href="{% url 'elanlar:elandelete' elan.id %}">
                                                             <i class="fa fa-trash"></i>
             
                                               </td>
@@ -233,22 +238,22 @@
           </div>
 
           <!-- Pagination -->
-          {% if posts.has_other_pages %}
+          {% if items.has_other_pages %}
           <ul class="pagination">
-            {% if posts.has_previous %}
-              <li><a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+            {% if items.has_previous %}
+              <li><a class="btn btn-primary" href="?page={{ items.previous_page_number }}">&laquo;</a></li>
             {% else %}
               <li class="disabled  btn btn-primary"><span>&laquo;</span></li>
             {% endif %}
-            {% for i in posts.paginator.page_range %}
+            {% for i in items.paginator.page_range %}
               {% if posts.number == i %}
                 <li class="active btn btn-primary"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
               {% else %}
                 <li><a class="btn btn-primary "href="?page={{ i }}">{{ i }}</a></li>
               {% endif %}
             {% endfor %}
-            {% if posts.has_next %}
-              <li><a class="btn btn-primary" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+            {% if items.has_next %}
+              <li><a class="btn btn-primary" href="?page={{ items.next_page_number }}">&raquo;</a></li>
             {% else %}
               <li class="disabled btn btn-primary"><span>&raquo;</span></li>
             {% endif %}

@@ -187,6 +187,23 @@ def elanadmin(request):
         form.user = request.user
         form.save()
     items = Elan.objects.all()
+    query = request.GET.get('q')
+    if query:
+       items = items.filter(elanTitle__icontains=query)
+    paginator = Paginator(items, 6)
+    page = request.GET.get('page')
+    if not page:
+        page = paginator.num_pages
+
+
+   
+   
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
    
     context = {
        
@@ -206,4 +223,10 @@ def elan_update(request, id):
     context={
         'elan':elan
     }   
-    return render (request, 'elan/elanupdate.html', context) 
+    return render (request, 'elan/elanupdate.html', context)
+
+@login_required
+def elan_delete(request,id):
+    elan = get_object_or_404(Elan, id=id)
+    elan.delete()
+    return redirect('elanlar:elanadmin')

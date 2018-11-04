@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^education/', education, name="edu" ),
     url(r'^elanadmin/', elanadmin, name="elanadmin" ),
     url(r'^(?P<id>\d+)/update/$', elan_update, name="elanupdate" ),
+    url(r'^(?P<id>\d+)/delete/$', elan_delete, name="elandelete" ),
 
 
 

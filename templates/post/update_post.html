@@ -103,16 +103,12 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+              <form role="search" method="GET" action="">
+                  <div class="form-group row">
+                    <input type="text" class="form-control col-sm-9"name="q" placeholder="Məqalə Axtar">
+                    <button class="btn btn-primary col-sm-3"type="submit" class="submit"><i class="fa fa-search"></i></button>
                   </div>
-                </div>
-              </div>
-            </form>
+                </form>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
