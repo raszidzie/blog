@@ -36,3 +36,8 @@ class ElanComment(models.Model):
     comment = models.TextField(verbose_name="Yorum")
     date = models.DateTimeField(auto_now_add=True)
 
+class Subscribe(models.Model):
+    mail = models.EmailField(max_length=100)
+
+    def __str__(self):
+        return self.mail

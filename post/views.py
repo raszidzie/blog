@@ -84,7 +84,7 @@ def post_create(request):
     if form.is_valid():
         post = form.save()
   
-    paginator = Paginator(posts, 4)
+    paginator = Paginator(posts, 8)
     page = request.GET.get('page')
     if not page:
         page = paginator.num_pages
@@ -129,7 +129,7 @@ def listing(request):
    query = request.GET.get('q')
    if query:
        posts = posts.filter(title__icontains=query)
-   paginator = Paginator(posts, 6)
+   paginator = Paginator(posts, 8)
    page = request.GET.get('page')
    if not page:
     page = paginator.num_pages

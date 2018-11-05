@@ -15,8 +15,6 @@
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -37,6 +35,17 @@
     color: #ffffff;
 }
 
+#flashMessage {
+    color: white;
+    background-color: #28bd4f;
+    padding: 15px;
+    border-radius: 5px;
+    display: block;
+    width: calc(100% - 100px);
+    margin-bottom: 40px;
+  	position: absolute;
+}
+
     </style>
    
     
@@ -45,14 +54,21 @@
   <body>
 
     <div class="overlay"></div>
+    
    
 
     <div class="masthead">
       <div class="masthead-bg"></div>
       <div class="container h-100">
+        
+
         <div class="row h-100">
+            
           <div class="col-12 my-auto">
+            
+             
             <div class="masthead-content text-white py-5 py-md-0">
+                
               <h1 class="mb-3">LalaHelpMe</h1>
               <p class="mb-5">Buradan sual soruşa bilərsiniz
                 <strong></strong></p>
@@ -64,18 +80,26 @@
                      Ad Soyad<span class="asteriskField"></span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_ad" maxlength="200" name="ad" type="text"> </div> </div> <div id="div_id_soyad" class="form-group"> <label for="id_soyad" class="control-label  requiredField">
                      Email<span class="asteriskField"></span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_soyad" maxlength="200" name="soyad" type="text"> </div> </div> <div id="div_id_sual" class="form-group"> <label for="id_sual" class="control-label  requiredField">
                      Sual<span class="asteriskField"></span> </label> <div class="controls "> <input class="textinput textInput form-control" id="id_sual" maxlength="600" name="sual" type="text"> </div> </div>
-     
-                      <button class="btn btn-secondary" type="submit">Soruş</button>
+                      <button id="send" class="btn btn-secondary" type="submit">Soruş</button>
+                      
+                      
                       </form>
+                     
+                      
                 <div class="input-group-append">
+                  
                   
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
+        
       </div>
     </div>
+ 
+    
 
     <div class="social-icons">
       <ul class="list-unstyled text-center mb-0">
@@ -99,10 +123,11 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.bundle.min.js"></script>
+   
 
     <!-- Custom scripts for this template -->
-    <script src="/static/js/coming-soon.min.js"></script>
+   
+    
 
   </body>
   

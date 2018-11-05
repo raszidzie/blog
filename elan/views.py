@@ -55,6 +55,16 @@ def elandetail(request, id):
 def store(request):
     itemsnew =  Elan.objects.all().order_by('-id')[:3]
     items =  Elan.objects.all()
+    paginator = Paginator(items, 6)
+    page = request.GET.get('page')
+
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
+   
    
     context={
         'items':items,

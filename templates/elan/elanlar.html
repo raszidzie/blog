@@ -70,15 +70,14 @@
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
-						<div class="col-md-6">
+						<div class="col-md-9">
 							<div class="header-search">
 								<form>
-									<select class="input-select">
-										<option value="0"></option>
-										
-									</select>
+									
+									
 									<input class="input" placeholder="Elan Axtar">
 									<button class="search-btn">Axtar</button>
+								
 								</form>
 							</div>
 						</div>
@@ -169,8 +168,9 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-                            <li class="active"><a href="{% url 'elanlar:main' %}">Ana Sehife</a></li>
-                            <li><a href="{% url 'elanlar:kids' %}"">Uşaqlar</a></li>
+							<li class="active"><a href="{% url 'elanlar:main' %}">Ana Sehife</a></li>
+							<li><a href="{% url 'elanlar:store' %}"">Bütün</a></li>
+                            <li ><a href="{% url 'elanlar:kids' %}"">Uşaqlar</a></li>
                             <li><a href="{% url 'elanlar:edu' %}">Təhsil</a></li>
                             <li><a href="{% url 'elanlar:work' %}">İş</a></li>
                             <li><a href="{% url 'elanlar:service' %}">Xidmətlər</a></li>
@@ -195,11 +195,11 @@
 					<div class="col-md-4 col-xs-6">
 						<div class="shop">
 							<div class="shop-img">
-								<img src="/static/img/kids.jpg" alt="">
+								<img src="https://www.hdwallpapers.in/download/cute_kids_cute_play-wide.jpg" alt="">
 							</div>
 							<div class="shop-body">
 								<h3>Uşaqlar<br>Aləmi</h3>
-								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'elanlar:kids' %}" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -213,7 +213,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>İş<br>Təklifləri</h3>
-								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'elanlar:work' %}" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -227,7 +227,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>Xidmətlər<br></h3>
-								<a href="#" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'elanlar:service' %}" class="cta-btn">Elanlara Bax <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -289,7 +289,7 @@
 											<div class="product-body">
 												<p class="product-category">{{item.itemCategory}}</p>
 												<h3 class="product-name"><a href="{% url 'elanlar:elandetail' item.id%}">{{item.elanTitle}}</a></h3>
-												<h4 class="product-price">{{item.elanPrice}} AZN <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price">{{item.elanPrice}} AZN </h4>
 												
 												<div class="product-btns">
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Yadda Saxla</span></button>
@@ -552,11 +552,9 @@
 		</div>
 		<!-- /SECTION -->
 
-		<!-- NEWSLETTER -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
+		<!-- NEWSLETTER 
+		
+			
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
@@ -582,11 +580,10 @@
 						</div>
 					</div>
 				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
+				
+			
 		</div>
-		<!-- /NEWSLETTER -->
+		 -->
 
 		<!-- FOOTER -->
 		<footer id="footer">
@@ -679,6 +676,7 @@
 		<script src="/static/js/nouislider.min.js"></script>
 		<script src="/static/js/jquery.zoom.min.js"></script>
 		<script src="/static/js/main.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	</body>
 </html>
